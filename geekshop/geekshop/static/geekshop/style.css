@@ -266,6 +266,9 @@ html, body {
 	width: 270px;
 	position: relative;
 }
+.tab-content .block img {
+	max-width: 270px;
+}
 .tab-content a .text {
 	display: none;
 	height: 268px;
@@ -998,8 +1001,9 @@ td:first-child {
 .related-products {
 	margin-bottom: 120px;
 }
-.related-products .block a img {
+.related-products .block a>img {
 	float: left;
+	width: 370px;
 }
 .related-products .block {
 	float: left;
