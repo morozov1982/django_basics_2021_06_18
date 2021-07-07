@@ -89,6 +89,16 @@ html, body {
 	top: 63px;
 	left: 1210px;
 }
+.basket span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    text-align: center;
+	background-color: red;
+    color: white;
+    border-radius: 50%;
+}
 
 .clearfix:after {
 	content: "";
