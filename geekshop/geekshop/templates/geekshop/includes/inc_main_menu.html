@@ -10,6 +10,13 @@
         <li>
             <a href="{% url 'contacts' %}" class="{% if request.resolver_match.route == 'contacts/' %}active{% endif %}">контакты</a>
         </li>
+        {% if user.is_superuser %}
+        <li>
+            <a href="{% url 'admin_staff:users' %}">
+                Админка
+            </a>
+        </li>
+        {% endif %}
         {% if user.is_authenticated %}
         <li>
             <a href="{% url 'auth:edit' %}">
