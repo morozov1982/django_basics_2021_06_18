@@ -1,9 +1,10 @@
 {% extends 'adminapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block content %}
 <div class="card" style="width: 18rem;">
-    <img src="/media/{{ product.image }}" alt="..." class="card-img-top">
+    <img src="{{ product.image|media_folder_products }}" alt="..." class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.short_desc }}</p>
