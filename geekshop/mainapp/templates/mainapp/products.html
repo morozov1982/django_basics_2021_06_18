@@ -50,8 +50,8 @@
                 заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
             <div class="description-text">
-                {{ hot_product.short_desc }}
-                {{ hot_product.description }}
+                <p>{{ hot_product.short_desc }}</p>
+                {{ hot_product.description|linebreaks }}
             </div>
         </div>
     </div>
@@ -77,6 +77,19 @@
             </div>
             {% endfor %}
         </div>
+        {% if products.paginator and products.paginator.num_pages > 1 %}
+        <div class="paginator">
+            {% if products.has_previous %}
+                <a href="{% url 'products:page' category.pk products.previous_page_number %}">&#9664;</a>
+            {% endif %}
+                <span class="current">
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                </span>
+            {% if products.has_next %}
+                <a href="{% url 'products:page' category.pk products.next_page_number %}">&#9654;</a>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 
     <div class="related">
