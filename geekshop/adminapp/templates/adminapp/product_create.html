@@ -5,7 +5,7 @@
     <div class="mx-auto col-3">
         <form class="form-horizontal" action="{% url 'admin_staff:product_create' category.pk %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ update_form.as_p }}
+            {{ form.as_p }}
 
             <input class="form-control" type="submit" value="Создать">
         </form>

@@ -8,7 +8,7 @@
             ({{ user_to_delete.first_name|title }}
             {% if user_to_delete.last_name %}
                 {{ user_to_delete.last_name|title }}
-            {% endif %}
+            {% endif %})
         {% endif %}
         ?
         <form action="{% url 'admin_staff:user_delete' user_to_delete.pk %}" method="post">

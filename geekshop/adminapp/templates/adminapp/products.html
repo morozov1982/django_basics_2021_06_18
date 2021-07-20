@@ -34,7 +34,7 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        {% for product in objects %}
+                        {% for product in product_list %}
                         <tr {% if product.is_deleted %} style="opacity: 0.5;" {% endif %}>
                             <td><a href="{% url 'admin_staff:product_read' product.id %}" style="color: dodgerblue">
                                 {{ product.name }}</a></td>

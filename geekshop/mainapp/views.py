@@ -31,7 +31,7 @@ def products(request, pk=None, page=1):
 
     basket = get_basket(request.user)
 
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(is_deleted=False)
     products = Product.objects.all().order_by('price')
 
     hot_product = get_hot_product()
