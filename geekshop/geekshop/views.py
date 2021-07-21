@@ -7,16 +7,11 @@ from mainapp.models import Product
 def index(request):
     title = 'магазин'
 
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-
     products = Product.objects.all()[:3]
 
     context = {
         'title': title,
         'products': products,
-        'basket': basket,
     }
     return render(request=request, template_name='geekshop/index.html', context=context)
 
