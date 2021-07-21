@@ -1,5 +1,6 @@
 {% extends 'geekshop/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
@@ -11,7 +12,7 @@
 
 </div>
 
-<div class="details">
+<div class="details mb-120">
     {% include 'mainapp/includes/inc_category_menu.html' %}
 
     {% if category.name %}
@@ -21,21 +22,21 @@
     <div class="details-products">
         <div class="details-slider">
             <div class="slider-product">
-                <img src="/media/{{ product.image }}" class="w-570">
+                <img src="{{ product.image|media_folder_products }}" class="w-570">
             </div>
             <div class="slider-control">
                 <div class="block">
-                    <a href="#"><img src="/media/{{ product.image }}" alt="" class="w-70">
+                    <a href="#"><img src="{{ product.image|media_folder_products }}" alt="" class="w-70">
                         <div class="text"></div>
                     </a>
                 </div>
                 <div class="block">
-                    <a href="#"><img src="/media/{{ product.image }}" alt="" class="w-70">
+                    <a href="#"><img src="{{ product.image|media_folder_products }}" alt="" class="w-70">
                         <div class="text"></div>
                     </a>
                 </div>
                 <div class="block">
-                    <a href="#"><img src="/media/{{ product.image }}" alt="" class="w-70">
+                    <a href="#"><img src="{{ product.image|media_folder_products }}" alt="" class="w-70">
                         <div class="text"></div>
                     </a>
                 </div>

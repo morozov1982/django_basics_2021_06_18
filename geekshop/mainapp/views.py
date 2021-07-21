@@ -35,7 +35,7 @@ def products(request, pk=None, page=1):
     products = Product.objects.all().order_by('price')
 
     hot_product = get_hot_product()
-    same_products = get_same_products(hot_product)
+    same_products = get_same_products(hot_product)[:3]
 
     if pk is not None:
         if pk == 0:
@@ -79,9 +79,11 @@ def products(request, pk=None, page=1):
 def product(request, pk):
     title = 'продукты'
 
+    links_menu = ProductCategory.objects.filter(is_deleted=False)
+
     context = {
         'title': title,
-        'links_menu': ProductCategory.objects.all(),
+        'links_menu': links_menu,
         'product': get_object_or_404(Product, pk=pk),
         'basket': get_basket(request.user),
     }
