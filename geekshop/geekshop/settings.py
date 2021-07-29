@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import json
+# import json
 import os.path
 from pathlib import Path
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
+    'ordersapp',
 
     'social_django',
 ]
@@ -186,8 +187,8 @@ DOMAIN_NAME = 'http://127.0.0.1:8000'
 # EMAIL_USE_SSL = False
 
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'b331820e99ae3a'
-EMAIL_HOST_PASSWORD = '321be15c3cd53a'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '465'
 EMAIL_USE_TLS = True
 
@@ -197,9 +198,13 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',
 )
 
-with open('geekshop/vk.json', 'r', encoding='utf-8') as file:
-    VK = json.load(file)
+# with open('geekshop/vk.json', 'r', encoding='utf-8') as file:
+#     VK = json.load(file)
 
-SOCIAL_AUTH_VK_OAUTH2_ID = VK['SOCIAL_AUTH_VK_OAUTH2_ID']
-SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
-SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
+# SOCIAL_AUTH_VK_OAUTH2_ID = VK['SOCIAL_AUTH_VK_OAUTH2_ID']
+# SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
+
+SOCIAL_AUTH_VK_OAUTH2_ID = env('SOCIAL_AUTH_VK_OAUTH2_ID')
+SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
