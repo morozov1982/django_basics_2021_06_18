@@ -16,10 +16,26 @@
     text-align: left;
     line-height: 2em;
 }
-.btn {
+/*.btn {
     background: none;
     border: none;
 }
 .btn a {
     color: #3f9dff
+}*/
+
+.basket_record img {
+    width: 100px;
 }
+
+.row {
+    margin-bottom: 50px;
+}
+
+.row .btn {
+    width: fit-content;
+}
+/*
+.row .btn a {
+    text-decoration: none;
+}*/

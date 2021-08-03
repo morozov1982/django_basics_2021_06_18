@@ -4,7 +4,18 @@ from django.db import models
 from mainapp.models import Product
 
 
+class OrderItemQuerySet(models.QuerySet):
+
+    def delete(self, *args, **kwargs):
+        for object in self:
+            object.product.quantity += object.quantity
+            object.product.save()
+        super(OrderItemQuerySet, self).delete(*args, **kwargs)
+
+
 class Order(models.Model):
+    objects = OrderItemQuerySet.as_manager()
+
     FORMING = 'FM'
     SEND_TO_PROCEED = 'STP'
     PROCEED = 'PRD'
@@ -15,8 +26,8 @@ class Order(models.Model):
     ORDERS_STATUS_CHOICES = (
         (FORMING, 'формируется'),
         (SEND_TO_PROCEED, 'отправлен в обработку'),
-        (PROCEED, 'оплачен'),
-        (PAID, 'обрабатывается'),
+        (PROCEED, 'обрабатывается'),
+        (PAID, 'оплачен'),
         (READY, 'готов к выдаче'),
         (CANCEL, 'отменён'),
     )
@@ -97,3 +108,8 @@ class OrderItem(models.Model):
 
     def get_product_cost(self):
         return self.product.price * self.quantity
+
+    def delete(self):
+        self.product.quantity += self.quantity
+        self.product.save()
+        super(OrderItem, self).delete()

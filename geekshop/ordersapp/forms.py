@@ -14,8 +14,10 @@ class OrderForm(forms.ModelForm):
 
 
 class OrderItemForm(forms.ModelForm):
+    price = forms.CharField(label='цена', required=False)
+
     class Meta:
-        model = Order
+        model = OrderItem
         exclude = ()
 
     def __init__(self, *args, **kwargs):
