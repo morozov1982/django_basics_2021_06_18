@@ -53,8 +53,9 @@ def basket_edit(request, pk, quantity):
         new_basket_item = Basket.objects.get(pk=int(pk))
 
         if quantity > 0:
-            new_basket_item.quantity = quantity
-            new_basket_item.save()
+            if quantity < new_basket_item.quantity or new_basket_item.product.quantity:
+                new_basket_item.quantity = quantity
+                new_basket_item.save()
         else:
             new_basket_item.delete()
 
@@ -64,6 +65,9 @@ def basket_edit(request, pk, quantity):
             'basket': basket,
         }
 
-        result = render_to_string('basketapp/includes/inc_basket_list.html', context)
+        product_price = new_basket_item.product.price * new_basket_item.quantity
 
-        return JsonResponse({'result': result})
+        # result = render_to_string('basketapp/includes/inc_basket_list.html', context)
+        result = render_to_string('basketapp/includes/inc_basket_summary.html', context)
+
+        return JsonResponse({'result': result, 'product_price': product_price})

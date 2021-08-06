@@ -1,5 +1,6 @@
 {% extends 'geekshop/base.html' %}
 {% load static %}
+{% load math_tags %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'geekshop/basket.css' %}">
@@ -34,9 +35,11 @@
                         <td>
                             <input type="number" name="{{ item.pk }}"
                             min="0"
-                            value="{{ item.quantity}}">
+                            max="{{ item.product.quantity|add:item.quantity }}"
+                            value="{{ item.quantity }}">
                         </td>
-                        <td>{{ item.product.price }}</td>
+<!--                        <td>{{ item.product.price }}</td>-->
+                        <td class="price-item">{% multiply item.product.price item.quantity %} руб.</td>
                         <td>
                             <button class="btn btn-round">
                                 <a href="{% url 'basket:remove' item.pk %}" class="">удалить</a>

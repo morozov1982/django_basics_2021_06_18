@@ -16,7 +16,8 @@
         <td>
             <input type="number" name="{{ item.pk }}"
             min="0"
-            value="{{ item.quantity}}">
+            max="{{ item.product.quantity|add:item.quantity }}"
+            value="{{ item.quantity }}">
         </td>
         <td>{{ item.product.price }}</td>
         <td>

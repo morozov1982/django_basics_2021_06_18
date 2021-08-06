@@ -11,6 +11,10 @@
     padding: 2px 10px;
 }
 
+.basket_list input[type=number] {
+    width: 35%;
+}
+
 .basket_summary {
     margin: 50px 10px;
     text-align: left;
