@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -97,6 +98,7 @@ def register(request):
 
 
 @transaction.atomic
+@login_required
 def edit(request):
     title = 'редактирование'
 

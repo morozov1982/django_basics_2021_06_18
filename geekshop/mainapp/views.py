@@ -32,7 +32,7 @@ def products(request, pk=None, page=1):
     basket = get_basket(request.user)
 
     links_menu = ProductCategory.objects.filter(is_deleted=False)
-    products = Product.objects.all().order_by('price')
+    products = Product.objects.all().order_by('price')[:8]
 
     hot_product = get_hot_product()
     same_products = get_same_products(hot_product)[:3]
@@ -43,7 +43,7 @@ def products(request, pk=None, page=1):
             category = {'name': 'все', 'pk': 0}
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(is_deleted=False, category__pk=pk).order_by('price')
+            products = Product.objects.filter(is_deleted=False, category__pk=pk).select_related('category').order_by('price')
 
         paginator = Paginator(products, 3)
 
