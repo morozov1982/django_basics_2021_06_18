@@ -14,12 +14,19 @@ from mainapp.models import Product
 from ordersapp.forms import OrderItemForm
 from ordersapp.models import Order, OrderItem
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
 
 class OrderList(LoginRequiredMixin, ListView):
     model = Order
 
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
+
+    # @method_decorator(login_required())
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(ListView, self).dispatch(*args, **kwargs)
 
 
 class OrderCreate(LoginRequiredMixin, CreateView):
@@ -66,6 +73,10 @@ class OrderCreate(LoginRequiredMixin, CreateView):
 
         return super(OrderCreate, self).form_valid(form)
 
+    # @method_decorator(login_required())
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(ListView, self).dispatch(*args, **kwargs)
+
 
 class OrderUpdate(LoginRequiredMixin, UpdateView):
     model = Order
@@ -80,7 +91,8 @@ class OrderUpdate(LoginRequiredMixin, UpdateView):
         if self.request.POST:
             formset = OrderFormSet(self.request.POST, instance=self.object)
         else:
-            formset = OrderFormSet(instance=self.object)
+            queryset = self.object.orderitems.select_related()
+            formset = OrderFormSet(instance=self.object, queryset=queryset)
             for form in formset.forms:
                 if form.instance.pk:
                     form.initial['price'] = form.instance.product.price
@@ -104,6 +116,10 @@ class OrderUpdate(LoginRequiredMixin, UpdateView):
 
         return super(OrderUpdate, self).form_valid(form)
 
+    # @method_decorator(login_required())
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(ListView, self).dispatch(*args, **kwargs)
+
 
 class OrderDelete(DeleteView):
     model = Order
@@ -118,6 +134,10 @@ class OrderRead(DetailView):
         context = super(OrderRead, self).get_context_data(**kwargs)
         context['title'] = 'заказ | просмотр'
         return context
+
+    # @method_decorator(login_required())
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(ListView, self).dispatch(*args, **kwargs)
 
 
 def order_forming_complete(request, pk):

@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def basket(request):
     if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user).order_by('product__category')
+        basket = Basket.objects.filter(user=request.user).order_by('product__category').select_related()
         context = {
             'basket': basket
         }
@@ -59,7 +59,7 @@ def basket_edit(request, pk, quantity):
         else:
             new_basket_item.delete()
 
-        basket = Basket.objects.filter(user=request.user).order_by('product__category')
+        basket = Basket.objects.filter(user=request.user).order_by('product__category').select_related()
 
         context = {
             'basket': basket,
