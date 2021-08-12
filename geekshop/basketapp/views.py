@@ -27,10 +27,10 @@ def basket_add(request, pk):
 
     product = get_object_or_404(Product, pk=pk)
 
-    basket = Basket.objects.filter(user=request.user, product=product).first().select_related()
+    basket = Basket.objects.filter(user=request.user, product=product).first()
 
     if not basket:
-        basket = Basket(user=request.user, product=product).select_related()
+        basket = Basket(user=request.user, product=product)
 
     basket.quantity += 1
     basket.save()
