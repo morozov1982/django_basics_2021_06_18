@@ -221,6 +221,7 @@ SOCIAL_AUTH_VK_OAUTH2_ID = env('SOCIAL_AUTH_VK_OAUTH2_ID')
 SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
 SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
 
+
 if DEBUG:
     def show_toolbar(request):
         return True
@@ -246,6 +247,7 @@ if DEBUG:
         'template_profiler_panel.panels.template.TemplateProfilerPanel',
     ]
 
+
 if os.name == 'posix':
     CACHE_MIDDLEWARE_ALIAS = 'default'
     CACHE_MIDDLEWARE_SECONDS = 120
@@ -258,4 +260,4 @@ CACHES = {
     }
 }
 
-LOW_CACHE = True
+LOW_CACHE = False
