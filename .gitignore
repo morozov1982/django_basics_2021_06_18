@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+#/geekshop/media/
+/geekshop/geekshop/vk.json

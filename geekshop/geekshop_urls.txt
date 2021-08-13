@@ -1,0 +1,9 @@
+http://194.67.112.237/
+http://194.67.112.237/products/
+http://194.67.112.237/products/category/1/
+http://194.67.112.237/products/category/3/
+http://194.67.112.237/products/category/1/page/1/
+http://194.67.112.237/products/category/3/page/2/
+http://194.67.112.237/products/product/1/
+http://194.67.112.237/products/product/2/
+http://194.67.112.237/products/product/3/

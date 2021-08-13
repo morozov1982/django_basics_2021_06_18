@@ -1,0 +1,110 @@
+[
+  {
+    "category": "Офис",
+    "name": "Красный стул",
+    "image": "product_images/product-4.jpg",
+    "short_desc": "Красивый стул",
+    "description": "",
+    "price": "2300.00",
+    "quantity": 10
+  },
+  {
+    "category": "Офис",
+    "name": "Лампа сфера",
+    "image": "product_images/product-1_WG61ocJ.jpg",
+    "short_desc": "Нежный ламповый свет",
+    "description": "",
+    "price": "4500.00",
+    "quantity": 23
+  },
+  {
+    "category": "Классика",
+    "name": "Кресло из белой кожи",
+    "image": "product_images/product-21.jpg",
+    "short_desc": "Уникальный дизайн",
+    "description": "",
+    "price": "14500.00",
+    "quantity": 20
+  },
+  {
+    "category": "Офис",
+    "name": "Отличный стул",
+    "image": "product_images/controll2.jpg",
+    "short_desc": "Горячее предложение",
+    "description": "Расположитесь комфортно. Отличное качество материалов позволит вам это.\r\nРазличные цвета высочайший уровень эргономики и прочность.",
+    "price": "2585.90",
+    "quantity": 15
+  },
+  {
+    "category": "Модерн",
+    "name": "Лампа висеть сверху",
+    "image": "product_images/product-11.jpg",
+    "short_desc": "Визит на заглядение",
+    "description": "",
+    "price": "2611.00",
+    "quantity": 13
+  },
+  {
+    "category": "Дом",
+    "name": "Лампа стоять",
+    "image": "",
+    "short_desc": "Надёжно стоит на столе",
+    "description": "",
+    "price": "2561.00",
+    "quantity": 8
+  },
+  {
+    "category": "Офис",
+    "name": "Синий стул",
+    "image": "product_images/product-4.jpg",
+    "short_desc": "Красивый стул",
+    "description": "",
+    "price": "4300.00",
+    "quantity": 10
+  },
+  {
+    "category": "Классика",
+    "name": "Лампа сфера 2.0",
+    "image": "product_images/product-1_WG61ocJ.jpg",
+    "short_desc": "Нежный ламповый свет",
+    "description": "",
+    "price": "14500.00",
+    "quantity": 23
+  },
+  {
+    "category": "Модерн",
+    "name": "Кресло из белой кожи крокодила",
+    "image": "product_images/product-21.jpg",
+    "short_desc": "Уникальный дизайн",
+    "description": "",
+    "price": "34500.00",
+    "quantity": 20
+  },
+  {
+    "category": "Офис",
+    "name": "Отличный стул",
+    "image": "product_images/controll2.jpg",
+    "short_desc": "Горячее предложение",
+    "description": "Расположитесь комфортно. Отличное качество материалов позволит вам это.\r\nРазличные цвета высочайший уровень эргономики и прочность.",
+    "price": "2585.90",
+    "quantity": 15
+  },
+  {
+    "category": "Модерн",
+    "name": "Лампа висеть сверху 5.3",
+    "image": "product_images/product-11.jpg",
+    "short_desc": "Визит на заглядение",
+    "description": "",
+    "price": "3265.00",
+    "quantity": 13
+  },
+  {
+    "category": "Модерн",
+    "name": "Кресло из белой кожи носорога",
+    "image": "",
+    "short_desc": "Надёжно стоит на полу",
+    "description": "",
+    "price": "24500.00",
+    "quantity": 8
+  }
+]

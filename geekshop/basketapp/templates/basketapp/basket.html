@@ -1,0 +1,61 @@
+{% extends 'geekshop/base.html' %}
+{% load static %}
+{% load math_tags %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'geekshop/basket.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'basketapp/js/script.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="hero-white">
+    {% include 'geekshop/includes/inc_main_menu.html' %}
+</div>
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row basket_list">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Продукт</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Стоимость</th>
+                        <th scope="col">Удалить</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in basket %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ item.product }}</td>
+                        <td>
+                            <input type="number" name="{{ item.pk }}"
+                            min="0"
+                            max="{{ item.product.quantity|add:item.quantity }}"
+                            value="{{ item.quantity }}">
+                        </td>
+<!--                        <td>{{ item.product.price }}</td>-->
+                        <td class="price-item">{% multiply item.product.price item.quantity %} руб.</td>
+                        <td>
+                            <button class="btn btn-round">
+                                <a href="{% url 'basket:remove' item.pk %}" class="">удалить</a>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% if basket %}
+                    <div class="basket_summary">
+                        В корзине {{ basket.0.total_quantity }} товаров общей стоимостью
+                                  {{ basket.0.total_cost }} руб.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
