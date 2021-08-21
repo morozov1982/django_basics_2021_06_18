@@ -24,7 +24,7 @@
         <li>
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ user.first_name|default:'Пользователь' }}
+                    {{ user.first_name|default:user.username }}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li>
